@@ -1,0 +1,505 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+	margin: 0px;
+	background: rgb(222, 229, 218);
+}
+#box{
+	margin: 125px auto 0px;
+	width: 220px;
+	height: 220px;
+	position: relative;
+	transform-origin: 50% 50%;
+	transform-style: preserve-3d;
+}
+#box>div:nth-child(3n+1){
+	width: 100px;
+	height: 100px;
+	border: 5px solid white;
+	border-radius: 3px;
+	position: absolute;
+	opacity: 1;
+	transform-origin: 100% 100%;
+	top: 0px;
+	left: 0px;
+	backface-visibility: hidden;
+}
+#box>.blue{
+	background: blue;
+}
+#box>.green{
+	background: green;
+}
+#box>.orange{
+	background: orange;
+}
+#box>.red{
+	background: red;
+}
+#box>.yellow{
+	background: yellow;
+}
+#box>.white{
+	background: whitesmoke;
+}
+#box>.control:hover{
+	background: grey;
+}
+#box>.control{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+#box>div:nth-child(3n+2){
+	width: 80px;
+	height: 20px;
+	margin: 5px 0px 0px 25px;
+	transform-origin: 85px 105px;
+}
+#box>div:nth-child(3n+3){
+	width: 20px;
+	height: 80px;
+	margin: 25px 80px 0px 5px;
+	transform-origin: 105px 85px;
+}
+#box>.backg{
+	margin: 0px;
+	background: white;
+	width: 220px;
+	height: 220px;
+	position: absolute;
+	display: none;
+}
+</style>
+</head>
+<body>
+<div id = 'box' style = 'transform: perspective(1000px) rotateX(-25deg) rotateY(-32deg) rotateZ(0deg);'>
+	<div class = 'blue' surface = 'front' floor = 'top left'></div>
+	<div class = 'control' matrix = 'XCmatrix' floorC = 'left' ></div>
+	<div class = 'control' matrix = 'YAmatrix' floorC = 'top' ></div>
+	<div class = 'blue' surface = 'front' floor = 'top right'></div>
+	<div class = 'control' matrix = 'YCmatrix' floorC = 'top' ></div>
+	<div class = 'control' matrix = 'XCmatrix' floorC = 'right' ></div>
+	<div class = 'blue' surface = 'front' floor = 'bottom right'></div>
+	<div class = 'control' matrix = 'XAmatrix' floorC = 'right' ></div>
+	<div class = 'control' matrix = 'YCmatrix' floorC = 'bottom' ></div>
+	<div class = 'blue' surface = 'front' floor = 'bottom left'></div>
+	<div class = 'control' matrix = 'YAmatrix' floorC = 'bottom' ></div>
+	<div class = 'control' matrix = 'XAmatrix' floorC = 'left' ></div>
+	<div class = 'green' surface = 'back' floor = 'bottom left'></div>
+	<div class = 'control' matrix = 'XCmatrix' floorC = 'left' ></div>
+	<div class = 'control' matrix = 'YCmatrix' floorC = 'bottom' ></div>
+	<div class = 'green' surface = 'back' floor = 'bottom right'></div>
+	<div class = 'control' matrix = 'YAmatrix' floorC = 'bottom' ></div>
+	<div class = 'control' matrix = 'XCmatrix' floorC = 'right' ></div>
+	<div class = 'green' surface = 'back' floor = 'top right'></div>
+	<div class = 'control' matrix = 'XAmatrix' floorC = 'right' ></div>
+	<div class = 'control' matrix = 'YAmatrix' floorC = 'top' ></div>
+	<div class = 'green' surface = 'back' floor = 'top left'></div>
+	<div class = 'control' matrix = 'YCmatrix' floorC = 'top' ></div>
+	<div class = 'control' matrix = 'XAmatrix' floorC = 'left' ></div>
+	<div class = 'orange' surface = 'left' floor = 'top back'></div>
+	<div class = 'control' matrix = 'ZCmatrix' floorC = 'back' ></div>
+	<div class = 'control' matrix = 'YAmatrix' floorC = 'top' ></div>
+	<div class = 'orange' surface = 'left' floor = 'top front'></div>
+	<div class = 'control' matrix = 'YCmatrix' floorC = 'top' ></div>
+	<div class = 'control' matrix = 'ZCmatrix' floorC = 'front' ></div>
+	<div class = 'orange' surface = 'left' floor = 'bottom front'></div>
+	<div class = 'control' matrix = 'ZAmatrix' floorC = 'front' ></div>
+	<div class = 'control' matrix = 'YCmatrix' floorC = 'bottom' ></div>
+	<div class = 'orange' surface = 'left' floor = 'bottom back'></div>
+	<div class = 'control' matrix = 'YAmatrix' floorC = 'bottom' ></div>
+	<div class = 'control' matrix = 'ZAmatrix' floorC = 'back' ></div>
+	<div class = 'red' surface = 'right' floor = 'top front'></div>
+	<div class = 'control' matrix = 'ZAmatrix' floorC = 'front' ></div>
+	<div class = 'control' matrix = 'YAmatrix' floorC = 'top' ></div>
+	<div class = 'red' surface = 'right' floor = 'top back'></div>
+	<div class = 'control' matrix = 'YCmatrix' floorC = 'top' ></div>
+	<div class = 'control' matrix = 'ZAmatrix' floorC = 'back' ></div>
+	<div class = 'red' surface = 'right' floor = 'bottom back'></div>
+	<div class = 'control' matrix = 'ZCmatrix' floorC = 'back' ></div>
+	<div class = 'control' matrix = 'YCmatrix' floorC = 'bottom' ></div>
+	<div class = 'red' surface = 'right' floor = 'bottom front'></div>
+	<div class = 'control' matrix = 'YAmatrix' floorC = 'bottom' ></div>
+	<div class = 'control' matrix = 'ZCmatrix' floorC = 'front' ></div>
+	<div class = 'yellow' surface = 'top' floor = 'back left'></div>
+	<div class = 'control' matrix = 'XCmatrix' floorC = 'left' ></div>
+	<div class = 'control' matrix = 'ZAmatrix' floorC = 'back' ></div>
+	<div class = 'yellow' surface = 'top' floor = 'back right'></div>
+	<div class = 'control' matrix = 'ZCmatrix' floorC = 'back' ></div>
+	<div class = 'control' matrix = 'XCmatrix' floorC = 'right' ></div>
+	<div class = 'yellow' surface = 'top' floor = 'front right'></div>
+	<div class = 'control' matrix = 'XAmatrix' floorC = 'right' ></div>
+	<div class = 'control' matrix = 'ZCmatrix' floorC = 'front' ></div>
+	<div class = 'yellow' surface = 'top' floor = 'front left'></div>
+	<div class = 'control' matrix = 'ZAmatrix' floorC = 'front' ></div>
+	<div class = 'control' matrix = 'XAmatrix' floorC = 'left' ></div>
+	<div class = 'white' surface = 'bottom' floor = 'front left'></div>
+	<div class = 'control' matrix = 'XCmatrix' floorC = 'left' ></div>
+	<div class = 'control' matrix = 'ZCmatrix' floorC = 'front' ></div>
+	<div class = 'white' surface = 'bottom' floor = 'front right'></div>
+	<div class = 'control' matrix = 'ZAmatrix' floorC = 'front' ></div>
+	<div class = 'control' matrix = 'XCmatrix' floorC = 'right' ></div>
+	<div class = 'white' surface = 'bottom' floor = 'back right'></div>
+	<div class = 'control' matrix = 'XAmatrix' floorC = 'right' ></div>
+	<div class = 'control' matrix = 'ZAmatrix' floorC = 'back' ></div>
+	<div class = 'white' surface = 'bottom' floor = 'back left'></div>
+	<div class = 'control' matrix = 'ZCmatrix' floorC = 'back' ></div>
+	<div class = 'control' matrix = 'XAmatrix' floorC = 'left' ></div>
+	<h1 class = 'backg' id = 'Z' style = 'transform: rotateX(0deg);'></h1>
+	<h1 class = 'backg' id = 'X' style = 'transform: rotateY(90deg);'></h1>
+	<h1 class = 'backg' id = 'Y' style = 'transform: rotateX(90deg);'></h1>
+</div>
+<script>
+(function(){
+	var box = document.getElementById('box'),
+		boxChil = box.children,
+		i;
+	var magicCubeDB = {
+		ZsidesRotateDB: {
+			0: 'top',
+			1: 'right',
+			2: 'bottom',
+			3: 'left',
+			'top': 0,
+			'right': 1,
+			'bottom': 2,
+			'left': 3
+		},
+		XsidesRotateDB: {
+			0: 'top',
+			1: 'back',
+			2: 'bottom',
+			3: 'front',
+			'top': 0,
+			'back': 1,
+			'bottom': 2,
+			'front': 3
+		},
+		YsidesRotateDB: {
+			0: 'front',
+			1: 'right',
+			2: 'back',
+			3: 'left',
+			'front': 0,
+			'right': 1,
+			'back': 2,
+			'left': 3
+		},
+		ZsurfaceRotateDB: {
+			0: 'top left',
+			1: 'top right',
+			2: 'bottom right',
+			3: 'bottom left',
+			'top left': 0,
+			'left top': 0,
+			'top right': 1,
+			'right top': 1,
+			'bottom right': 2, 
+			'right bottom': 2, 
+			'bottom left': 3,
+			'left bottom': 3
+		},
+		XsurfaceRotateDB: {
+			0: 'top front',
+			1: 'top back',
+			2: 'bottom back',
+			3: 'bottom front',
+			'top front': 0, 
+			'front top': 0, 
+			'top back': 1, 
+			'back top': 1, 
+			'bottom back': 2, 
+			'back bottom': 2, 
+			'bottom front': 3,
+			'front bottom': 3
+		},
+		YsurfaceRotateDB: {
+			0: 'front left',
+			1: 'front right',
+			2: 'back right',
+			3: 'back left',
+			'front left': 0,
+			'left front': 0,
+			'front right': 1,
+			'right front': 1,
+			'back right': 2,
+			'right back': 2,
+			'back left': 3,
+			'left back': 3
+		},
+		backgDB: {
+			front: 'back',
+			back: 'front',
+			left: 'right',
+			right: 'left',
+			top: 'bottom',
+			bottom: 'top'
+		}
+	};
+	var ini = function(){
+		//3、再分别部署6个面
+		for( i = 12; i < 24; i++ ){
+			boxChil[i].style.transform +=' rotateX(180deg)';
+		}
+		for( ; i < 36; i++ ){
+			boxChil[i].style.transform +=' rotateY(-90deg)';
+		}
+		for( ; i < 48; i++ ){
+			boxChil[i].style.transform +=' rotateY(90deg)';
+		}
+		for( ; i < 60; i++ ){
+			boxChil[i].style.transform +=' rotateX(90deg)';
+		}
+		for( ; i < 72; i++ ){
+			boxChil[i].style.transform +=' rotateX(-90deg)';
+		}
+		//2、再分别绕z-axis旋转相应的角度
+		for( i = 3; i < 72; i += 12 ){
+			boxChil[i].style.transform +=' rotateZ(90deg)';
+			boxChil[i + 1].style.transform +=' rotateZ(90deg)';
+			boxChil[i + 2].style.transform +=' rotateZ(90deg)';
+		}
+		for( i = 6; i < 72; i += 12 ){
+			boxChil[i].style.transform +=' rotateZ(180deg)';
+			boxChil[i + 1].style.transform +=' rotateZ(180deg)';
+			boxChil[i + 2].style.transform +=' rotateZ(180deg)';
+		}
+		for( i = 9; i < 72; i += 12 ){
+			boxChil[i].style.transform +=' rotateZ(270deg)';
+			boxChil[i + 1].style.transform +=' rotateZ(270deg)';
+			boxChil[i + 2].style.transform +=' rotateZ(270deg)';
+		}
+		//1、先向前走过110px
+		for( i = 0; i < 72; i+= 3 ){
+			boxChil[i].style.transform +=' translateZ(110px)';
+		}
+		for( i = 1; i < 72; i+= 3 ){
+			boxChil[i].style.transform +=' translateZ(110.5px)';
+			boxChil[i + 1].style.transform +=' translateZ(110.5px)';
+		}
+		//用户控制旋转#box
+		var handlerMove;
+		var handlerMoveF = function(originX, originY){
+			var flag = 1,
+				axisRotate,
+				axisMove,
+				strSuf = '',
+				strPre = '',
+				strNum = '',
+				sign = '',
+				origin,
+				reg,
+				rent,
+				borrow;
+			return handlerMove = function( event ){
+				if(flag === 1){
+					flag = 0;
+					Math.abs( event.pageX - originX ) > Math.abs( event.pageY - originY )
+						? (
+							axisRotate = 'rotateY',
+							axisMove = 'X',
+							origin = originX
+						)
+						: (
+							axisRotate = 'rotateX',
+							axisMove = 'Y',
+							origin = originY,
+							sign = '-'
+						);
+					borrow = box.style.transform;
+					reg = new RegExp(axisRotate + '\\(' + /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source + 'deg\\)', 'g');
+					rent = reg.exec( borrow );
+					strPre = borrow.substring(0, rent.index);
+					strSuf = borrow.substring(reg.lastIndex);
+					strNum = rent[0].match(/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/)[0];
+				}
+				sign === '-'
+					? rent = -(event['page' + axisMove] - origin) / 4 + +strNum 
+					: rent = (event['page' + axisMove] - origin) / 4 + +strNum 
+				box.style.transform = strPre + axisRotate + '(' + rent + 'deg) ' + strSuf;
+			};
+		};
+		var handlerUp = function(){
+			document.removeEventListener('mouseup', handlerUp, false);
+			document.removeEventListener('mousemove', handlerMove, false);
+		};
+		document.addEventListener('mousedown', function( event ){
+			event.stopPropagation();
+			event.preventDefault();
+			document.addEventListener('mouseup', handlerUp, false);
+			document.addEventListener('mousemove', handlerMoveF(event.pageX, event.pageY), false);
+		}, false);
+	};
+	ini();
+	var rotate = (function(){
+		var button,
+			surfaces = [], //将要被旋转的层的表面
+			surfaceW,
+			sides = [], //将要被旋转的层的四周
+			backg, //背景（为了防止旋转时‘透视’）
+			floorW,
+			axis,
+			clockwise,
+			regX, //正则表达式，匹配'旋转X轴'，如: rotateX(30deg)
+			regY, 
+			viewX, //box在X轴旋转的角度
+			viewY,
+			rent,
+			i,
+			j;
+		var transition = (function(){
+			var duration = 400,
+				steps = Math.floor( duration / 10 ),
+				stepTime = duration / steps,
+				stepPercent = 1 / steps;
+			var yFromXCubicBezier = function( xTarget ){
+				var tolerance = 0.00001,
+					t0 = 0.6,
+					x = 3*(1-t0)*(1-t0)*t0*0.5 + 3*(1-t0)*t0*t0*0.5 + t0*t0*t0,
+					t;
+				while( Math.abs(x - xTarget) > tolerance ){
+					t = t0 - ( 3*(1-t0)*(1-t0)*t0*0.5 + 3*(1-t0)*t0*t0*0.5 + t0*t0*t0 - xTarget ) / ( 3*(1 - t0)*(1 - t0)*0.5 + 6*(1 - t0)*t0*(0.5 - 0.5) + 3*t0*t0*(1 - 0.5) );
+					t0 = t;
+					x = 3*(1-t0)*(1-t0)*t0*0.5 + 3*(1-t0)*t0*t0*0.5 + t0*t0*t0;
+				}
+				return 3*(1-t)*t*t*1 + t*t*t;	
+			};				
+			return function(elem){
+				var rent = elem.style,
+					rotatePreStr = 'rotate' + axis + '(',
+					rotateOrigin,
+					styleStrSuf,
+					t = 0;
+				rent.transform[6] === axis 
+					? (
+						rotateOrigin = +rent.transform.match(/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/)[0],
+						styleStrSuf = 'deg)' + rent.transform.substring( rent.transform.search(' ') )
+					)
+					: (
+						rotateOrigin = 0,
+						styleStrSuf = 'deg) ' + rent.transform
+					);
+				t += stepPercent;
+				var tick;
+				if(clockwise === '-'){
+					tick = setInterval(function(){
+						t += stepPercent;
+						rent.transform = rotatePreStr + ( -yFromXCubicBezier(t)*90 + rotateOrigin ) + styleStrSuf;
+						t > 1 && (rent.transform = rotatePreStr + ( -90 + rotateOrigin ) + styleStrSuf) && clearInterval(tick);
+					}, stepTime);
+				} else{
+					tick = setInterval(function(){
+						t += stepPercent;
+						rent.transform = rotatePreStr + ( yFromXCubicBezier(t)*90 + rotateOrigin ) + styleStrSuf;
+						t > 1 && (rent.transform = rotatePreStr + ( 90 + rotateOrigin ) + styleStrSuf) && clearInterval(tick);
+					}, stepTime);
+				}
+			};
+		}());
+		return function( event ){
+			surfaces = [];
+			sides = [];
+			button = event.currentTarget;
+			surfaceW = button.getAttribute('floorC');
+			axis = button.getAttribute('matrix')[0];
+			button.getAttribute('matrix')[1] === 'C' ? clockwise = '' : clockwise = '-';
+			//确定将要被旋转的DIV
+			for(i = 0; i < 72; i+= 3){
+				if( boxChil[i].getAttribute('floor').search(surfaceW) !== -1 ){
+					sides.push(boxChil[i]);
+					continue;
+				}
+				boxChil[i].getAttribute('surface') === surfaceW && surfaces.push(boxChil[i]);
+			}
+			//旋转
+			for(rent = magicCubeDB[axis + 'surfaceRotateDB'], i = 0; i < surfaces.length; i++){
+				transition( surfaces[i] );
+				j = (rent[surfaces[i].getAttribute('floor')] + +(clockwise + '1') + 4) % 4;
+				surfaces[i].setAttribute('floor', rent[j]);
+			}
+			for(rent = magicCubeDB[axis + 'sidesRotateDB'], i = 0; i < sides.length; i++){
+				transition( sides[i] );
+				j = (rent[sides[i].getAttribute('surface')] + +(clockwise + '1') + 4) % 4;
+				sides[i].setAttribute('surface', rent[j]);
+				j = (rent[sides[i].getAttribute('floor').replace(surfaceW, '').trim()] + +(clockwise + '1') + 4) % 4;
+				sides[i].setAttribute('floor', rent[j] + ' ' + surfaceW);
+			}
+			//防止被透视
+			backg = document.getElementById(axis);
+			backg.style.display = 'block';
+			//regX = new RegExp('rotateX' + '\\(' + /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source + 'deg\\)');//简化再说
+			//regY = new RegExp('rotateY' + '\\(' + /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source + 'deg\\)');//简化再说
+			regX = /rotateX\([+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)deg\)/;
+			regY = /rotateY\([+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)deg\)/;
+			viewX = +box.style.transform.match(regX)[0].match(/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/)[0];
+			viewY = +box.style.transform.match(regY)[0].match(/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/)[0];
+			if(axis === 'Y'){
+				(viewX % 360 + 360) % 360 < 180 
+				? (
+					'top' === surfaceW && transition( backg )
+				)
+				: (
+					'bottom' === surfaceW  && transition( backg )
+				);
+			} else if(axis === 'X'){
+				i = (viewX % 360 + 360) % 360;
+				i < 90 || i > 270
+				? (
+					(viewY % 360 + 360) % 360 < 180 
+					? (
+						'right' === surfaceW && transition( backg )
+					)
+					: (
+						'left' === surfaceW && transition( backg )
+					)
+				)
+				: (
+					(viewY % 360 + 360) % 360 < 180 
+					? (
+						'left' === surfaceW && transition( backg )
+					)
+					: (
+						'right' === surfaceW && transition( backg )
+					)
+				);
+			} else if(axis === 'Z'){
+				i = (viewX % 360 + 360) % 360;
+				i < 90 || i > 270
+				? (
+					j = (viewY % 360 + 360) % 360,
+					j < 90 || j > 270
+					? (
+						'back' === surfaceW && transition( backg )
+					)
+					: (
+						'front' === surfaceW && transition( backg )
+					)
+				)
+				: (
+					j = (viewY % 360 + 360) % 360,
+					j < 90 || j > 270
+					? (
+						'front' === surfaceW && transition( backg )
+					)
+					: (
+						'back' === surfaceW && transition( backg )
+					)
+				);
+			}
+			setTimeout(function(){
+				backg.style.display = 'none';
+			}, 400);
+		};
+	}());
+	for( i = 0; i < 72; i+= 3 ){
+		boxChil[i + 1].addEventListener('click', rotate, false);
+		boxChil[i + 2].addEventListener('click', rotate, false);
+	}
+}());
+</script>
+</body>
+</html>
