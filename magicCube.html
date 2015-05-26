@@ -285,42 +285,29 @@ body{
 		var handlerMove;
 		var handlerMoveF = function(originX, originY){
 			var flag = 1,
-				axisRotate,
-				axisMove,
 				strSuf = '',
 				strPre = '',
-				strNum = '',
-				sign = '',
-				origin,
-				reg,
+				strNumX = '',
+				strNumY = '',
+				regX = /rotateX\([+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)deg\)/g,
+				regY = /rotateY\([+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)deg\)/g,
+				transOrigin = '',
 				rent,
 				borrow;
 			return handlerMove = function( event ){
 				if(flag === 1){
 					flag = 0;
-					Math.abs( event.pageX - originX ) > Math.abs( event.pageY - originY )
-						? (
-							axisRotate = 'rotateY',
-							axisMove = 'X',
-							origin = originX
-						)
-						: (
-							axisRotate = 'rotateX',
-							axisMove = 'Y',
-							origin = originY,
-							sign = '-'
-						);
-					borrow = box.style.transform;
-					reg = new RegExp(axisRotate + '\\(' + /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source + 'deg\\)', 'g');
-					rent = reg.exec( borrow );
-					strPre = borrow.substring(0, rent.index);
-					strSuf = borrow.substring(reg.lastIndex);
-					strNum = rent[0].match(/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/)[0];
+					transOrigin = box.style.transform;
+					rent = regX.exec( transOrigin );
+					borrow = regY.exec( transOrigin );
+					strPre = transOrigin.substring( 0, Math.min(rent.index, borrow.index) );
+					strSuf = transOrigin.substring( Math.max(regX.lastIndex, regY.lastIndex) );
+					strNumX = rent[0].match(/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/)[0];
+					strNumY = borrow[0].match(/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/)[0];
 				}
-				sign === '-'
-					? rent = -(event['page' + axisMove] - origin) / 4 + +strNum 
-					: rent = (event['page' + axisMove] - origin) / 4 + +strNum 
-				box.style.transform = strPre + axisRotate + '(' + rent + 'deg) ' + strSuf;
+				rent = (event.pageX - originX) / 4 + +strNumY;
+				borrow = (originY - event.pageY) / 4 + +strNumX;
+				box.style.transform = strPre + 'rotateX(' + borrow + 'deg) ' + 'rotateY(' + rent + 'deg) ' + strSuf;
 			};
 		};
 		var handlerUp = function(){
@@ -431,8 +418,6 @@ body{
 			//防止被透视
 			backg = document.getElementById(axis);
 			backg.style.display = 'block';
-			//regX = new RegExp('rotateX' + '\\(' + /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source + 'deg\\)');//简化再说
-			//regY = new RegExp('rotateY' + '\\(' + /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source + 'deg\\)');//简化再说
 			regX = /rotateX\([+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)deg\)/;
 			regY = /rotateY\([+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)deg\)/;
 			viewX = +box.style.transform.match(regX)[0].match(/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/)[0];
