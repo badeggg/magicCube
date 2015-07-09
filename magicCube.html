@@ -13,6 +13,8 @@ body{
 	position: relative;
 	transform-origin: 50% 50%;
 	transform-style: preserve-3d;
+	-webkit-transform-origin: 50% 50%;
+	-webkit-transform-style: preserve-3d;
 }
 #box>div:nth-child(3n+1){
 	width: 100px;
@@ -22,6 +24,7 @@ body{
 	position: absolute;
 	opacity: 1;
 	transform-origin: 100% 100%;
+	-webkit-transform-origin: 100% 100%;
 	top: 0px;
 	left: 0px;
 	backface-visibility: hidden;
@@ -58,12 +61,14 @@ body{
 	height: 20px;
 	margin: 5px 0px 0px 25px;
 	transform-origin: 85px 105px;
+	-webkit-transform-origin: 85px 105px;
 }
 #box>div:nth-child(3n+3){
 	width: 20px;
 	height: 80px;
 	margin: 25px 80px 0px 5px;
 	transform-origin: 105px 85px;
+	-webkit-transform-origin: 105px 85px;
 }
 #box>.backg{
 	margin: 0px;
@@ -159,6 +164,9 @@ body{
 		boxChil = box.children,
 		i;
 	var magicCubeDB = {
+	//用于查询旋转后节点应该有的floor, surface值
+	//可能用于设置floor也可能用来设置surface
+	//想弄明白请看rotate函数的具体实现(要哭了，这注释完全没法写明白啊
 		ZsidesRotateDB: {
 			0: 'top',
 			1: 'right',
@@ -278,8 +286,8 @@ body{
 			boxChil[i].style.transform +=' translateZ(110px)';
 		}
 		for( i = 1; i < 72; i+= 3 ){
-			boxChil[i].style.transform +=' translateZ(110.5px)';
-			boxChil[i + 1].style.transform +=' translateZ(110.5px)';
+			boxChil[i].style.transform +=' translateZ(111.5px)';
+			boxChil[i + 1].style.transform +=' translateZ(111.5px)';
 		}
 		//用户控制旋转#box
 		var handlerMove;
